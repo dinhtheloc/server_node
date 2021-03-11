@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const http = require('http');
 var app = express();
 
 // view engine setup
@@ -49,4 +49,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+const server = http.createServer(app);
+
+server.listen(process.env.PORT || 3000, () => console.log(`Server has started.`));
+
+
