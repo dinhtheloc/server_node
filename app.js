@@ -17,15 +17,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use(express.static(path.join(__dirname, 'build', 'build-main')));
-// app.use(express.static(path.join(__dirname, 'build', 'build-other')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 
 
-app.use('/build-other', (req, res, next) => {
-  return res.sendFile(path.resolve( __dirname, 'build', 'build-other', 'index.html'));
+app.use('/scroll-animation', (req, res, next) => {
+  return res.sendFile(path.resolve( __dirname, 'build', 'scroll-animation', 'index.html'));
+});
+
+app.use('/background-animation', (req, res, next) => {
+  return res.sendFile(path.resolve( __dirname, 'build', 'background-animation', 'index.html'));
 });
 
 app.use('/', (req, res, next) => {
