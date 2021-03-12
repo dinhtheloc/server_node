@@ -29,6 +29,12 @@ app.use('/background-animation', (req, res, next) => {
   return res.sendFile(path.resolve( __dirname, 'build', 'background-animation', 'index.html'));
 });
 
+app.use('/parallax-text-scrolling', (req, res, next) => {
+  return res.sendFile(path.resolve( __dirname, 'build', 'parallax-text-scrolling', 'index.html'));
+});
+
+
+
 app.use('/', (req, res, next) => {
   return res.sendFile(path.resolve( __dirname, 'public', 'index.html'));
 });
